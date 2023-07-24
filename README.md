@@ -1,4 +1,4 @@
-<div id="header"> <img src="https://media.giphy.com/media/1k4PPf8zKsAqHogX9y/giphy.gif" width="100"/>
+<div id="header"> <img src="https://raw.githubusercontent.com/ivinnike/postman_autotest/7943650617c9605410d2475fa54e0aaaf4cb38fa/postman.svg" width="100"/>
 </div>
 ## Несколько автотестов на JS для Postman
 

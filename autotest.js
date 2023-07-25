@@ -6,17 +6,19 @@ pm.test("Мой первый автотест", function () {
     pm.response.to.have.status(200);
 });
 
+//тест для проверки тела ответа на наличие строки "Яндекс.Практикум"
 pm.test("Body matches string Яндекс.Практикум", function () {
-    pm.expect(pm.response.text()).to.include("Яндекс.Практикум"); //тест для проверки тела ответа на наличие строки "Яндекс.Практикум"
-});
+    pm.expect(pm.response.text()).to.include("Яндекс.Практикум"); 
 
 pm.test("Response time is less than 50ms", function () {
     pm.expect(pm.response.responseTime).to.be.below(50);
 });
-
-pm.environment.set("trainer_id", pm.response.json()[0].id); //устанавливает переменную среды в Postman
-
-const jsonData = pm.response.json(); // утверждения типа значения
+    
+//устанавливает переменную среды в Postman
+pm.environment.set("trainer_id", pm.response.json()[0].id); 
+    
+// утверждения типа значения
+const jsonData = pm.response.json();
 pm.test("Test data type of the response", () => {
   pm.expect(jsonData).to.be.an("object");
   pm.expect(jsonData.gender).to.be.a("string");
@@ -24,12 +26,13 @@ pm.test("Test data type of the response", () => {
   pm.expect(jsonData.species).to.be.an("array");
 });
 
-pm.test("Content-Type header is application/json", () => { //заголовка ответа, имеющего определенное значение
+//заголовка ответа, имеющего определенное значение
+pm.test("Content-Type header is application/json", () => { 
   pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');
 });
 
-
-pm.test("Object is contained", () => { // тест то что объект содержится в ответе
+// тест то что объект содержится в ответе
+pm.test("Object is contained", () => { 
   const expectedObject = {
     "name": "Obi-Wan Kenobi",
     "films": ["https://swapi.py4e.com/api/films/1/",
